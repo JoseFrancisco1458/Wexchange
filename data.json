@@ -2,7 +2,7 @@
     "divisas": [
         {
             "bandera": "Img/usa.png",
-            "compra": 4150,
+            "compra": 4200,
             "nombre": "Dólar",
             "venta": 4080
         },

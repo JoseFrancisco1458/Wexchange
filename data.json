@@ -1,0 +1,82 @@
+{
+    "divisas": [
+        {
+            "bandera": "Img/usa.png",
+            "compra": 4150,
+            "nombre": "Dólar",
+            "venta": 4080
+        },
+        {
+            "bandera": "Img/union_europea.png",
+            "compra": 4500,
+            "nombre": "Euro",
+            "venta": 4080
+        },
+        {
+            "bandera": "Img/brasil.png",
+            "compra": 500,
+            "nombre": "Real",
+            "venta": 700
+        },
+        {
+            "bandera": "Img/canada.png",
+            "compra": 2700,
+            "nombre": "Canadá",
+            "venta": 2800
+        },
+        {
+            "bandera": "Img/theter.png",
+            "compra": 3800,
+            "nombre": "Theter",
+            "venta": 3900
+        },
+        {
+            "bandera": "Img/au.png",
+            "compra": 2000,
+            "nombre": "Australiano",
+            "venta": 2200
+        },
+        {
+            "bandera": "Img/inglaterra.png",
+            "compra": 5100,
+            "nombre": "Libra",
+            "venta": 5200
+        },
+        {
+            "bandera": "Img/peru.png",
+            "compra": 1000,
+            "nombre": "Soles",
+            "venta": 1030
+        },
+        {
+            "bandera": "Img/ch.png",
+            "compra": 4200,
+            "nombre": "Franco",
+            "venta": 4500
+        },
+        {
+            "bandera": "Img/do.png",
+            "compra": 50,
+            "nombre": "Dominicano",
+            "venta": 55
+        },
+        {
+            "bandera": "Img/jp.png",
+            "compra": 15,
+            "nombre": "Yen",
+            "venta": 20
+        },
+        {
+            "bandera": "Img/cn.png",
+            "compra": 300,
+            "nombre": "Yuan",
+            "venta": 310
+        },
+        {
+            "bandera": "Img/cr.png",
+            "compra": 2,
+            "nombre": "Colón",
+            "venta": 2
+        }
+    ]
+}

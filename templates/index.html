@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Document</title>{% endblock %}
+    {% block styles %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    {% endblock %}
+    
+</head>
+<body>
+
+{% block content %}
+<header>
+    <img class="logo-pc" src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="">
+    <input type="checkbox" id="side-bar">
+    <label class="label-cheked" for="side-bar">
+        <span class="material-symbols-outlined icono-menu">menu</span>
+    </label>
+    <nav class="lateral-menu">
+        <ul class="li-container">
+            <li class="lists"><a href="#1">Precios</a></li>
+            <li class="lists"><a href="#benefits">Nosotros</a></li>
+            <li class="lists"><a href="#3">Oficinas</a></li>
+            <li class="lists"><a href="https://wa.link/xe4d1i">Contáctanos</a></li>
+        </ul>
+    </nav>
+</header>    
+
+
+
+<main id="1">
+     <img class="logo-movile" src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="">
+     <section class="first-section">
+            <h2 class="section scroll-appear">Profesionales En Cambio De Divisas.</h2>
+            <p class="section scroll-appear">Compra y venta de divisas con la eficiencia y seguridad que tú necesitas.
+            Ofrecemos tasas altamente competitivas de acuerdo con las condiciones del mercado.</p>
+     </section>
+     <div class="tabla scroll-appear">
+        <table> 
+            <thead>
+                <tr>
+                    <th>Divisa</th>
+                    <th>Compra</th>
+                    <th>Venta</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in divisas %}
+                <tr>
+                    <td class="img-text">
+                        <img class="banderas" src="{{ url_for('static', filename=d.bandera) }}" alt="">{{ d.nombre }}
+                    </td>
+                    <td>{{ d.compra }}</td>
+                    <td>{{ d.venta }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<div class="contact">
+        <a href="#">Contáctanos</a>
+        <a href="#">Nuestras sedes</a>
+</div>
+
+<div class="section-container">
+<section class="second-section">
+            <h2 class="section">Profesionales En Cambio De Divisas.</h2>
+            <p class="section">Compra y venta de divisas con la eficiencia y seguridad que tú necesitas. Ofrecemos tasas altamente competitivas de acuerdo con las condiciones del mercado.</p>
+</section>
+</div>
+
+
+<div class="img-container">
+    <p class="scroll-appear">Ofrecemos las mejores tazas del mercado</p>
+    <img src="{{ url_for('static', filename='Img/hombre4.png') }}" alt="">
+    <p class="scroll-appear">las tazas pueden variar durante el dia</p>
+</div>
+
+ <div id="calculator" class="calc scroll-appear">
+        <h3>Calcula tu cambio</h3>
+        <input type="number" id="amount" placeholder="Cantidad en USD">
+        <select id="currency">
+            <option value="eur">Euro (EUR)</option>
+            <option value="cop">Peso colombiano (COP)</option>
+            <option value="usd">Dólar estadounidense (USD)<option>
+        </select>
+        <button onclick="calculate()">Calcular</button>
+        <p id="result"></p>
+</div>
+
+
+
+
+
+
+<section id="benefits">
+    <h2>¿Por qué elegirnos?</h2>
+    <div class="why">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/tasas.png') }}" alt="">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/transacciones.png') }}" alt="">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/seguridad.png') }}" alt="">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/ubicacion.png') }}"alt="">
+   </div>
+  
+    
+</section>
+
+
+
+<div class="where-container" >
+<section class="where" id="3">
+<h2>Nuestras oficinas</h2>
+<p class="direction" >Estamos ubicados en el centro historico de la ciudad, en la calle del colegio #34-8</p>
+</section>
+<div class="google-map">
+    <div class="back scroll-appear"></div>
+    <img src="{{ url_for('static', filename='Img/oficina.jpg') }}" alt="">
+    <iframe class="section" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.975746056187!2d-75.54962759999998!3d10.423499200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef62f9fbfc2a539%3A0x1a6a3e03772c44f2!2sCl.%20del%20Colegio%20%2334-8%2C%20El%20Centro%2C%20Cartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1sen!2sco!4v1753577051729!5m2!1sen!2sco" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
+
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Logo y descripción -->
+    <div class="footer-section">
+      <img src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="Logo" class="footer-logo">
+    </div>
+
+    <!-- Enlaces rápidos -->
+    <div class="footer-section">
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a href="#">Precios</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Oficinas</a></li>
+        <li><a href="#">Contáctanos</a></li>
+      </ul>
+    </div>
+
+    <!-- Contacto -->
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>📍 Calle del colegio #34-8, Cartagena</p>
+      <p>📞 +57 300 123 4567</p>
+      <p>✉ contacto@tudominio.com</p>
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <div class="social-icons">
+        <a href="#"><img src="{{ url_for('static', filename='Img/facebook.png') }}" alt="Facebook"></a>
+        <a href="#"><img class="ig-logo" src="{{ url_for('static', filename='Img/ig-Photoroom.png') }}" alt="Instagram"></a>
+        <a href="https://wa.link/xe4d1i"><img src="{{ url_for('static', filename='Img/whatsaap-Photoroom.png') }}" alt="WhatsApp"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Tu Empresa. Todos los derechos reservados.</p>
+    <button onclick="document.getElementById('loginDialog').showModal()">Admin</button>
+  </div>
+
+
+</footer>
+
+
+<dialog id="loginDialog">
+  <form method="post" action="/login">
+    <h2>Iniciar sesión</h2>
+    <label>Usuario:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label>Contraseña:</label>
+    <input type="password" name="password" required>
+    <br>
+    <button type="submit">Ingresar</button>
+    <button type="button" onclick="document.getElementById('loginDialog').close()">Cerrar</button>
+  </form>
+</dialog>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="snowflakes" id="snow-container"></div>-->
+<script src="{{ url_for('static', filename='js/snow.js') }}"></script>
+<script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
+<script src="{{ url_for('static', filename='js/scrollAppear.js') }}"></script>
+
+</body>
+</html>
+
+
+

@@ -6,14 +6,14 @@ app.secret_key = "clave-secreta"
 ADMIN_USER = "admin"
 ADMIN_PASS = "ivan123"
 
-#@app.route("/")
-#def home():
-#    datos = leer_datos()
-#    return render_template("index.html", divisas=datos["divisas"])
-
 @app.route("/")
 def home():
-    return render_template("index.html")
+    try:
+        datos = leer_datos()
+    except Exception as e:
+        error_msg = f"Error al leer data.json: {e}"
+        return render_template("index.html", error=error_msg, divisas=[])
+    return render_template("index.html", divisas=datos["divisas"])
 
 
 @app.route("/login", methods=["GET", "POST"])

@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from read_data import leer_datos, guardar_datos
+from calc import calculadora
 
 app = Flask(__name__)
 app.secret_key = "clave-secreta"
@@ -50,6 +51,32 @@ def panel():
 def logout():
     session.pop("admin", None)
     return redirect(url_for("home"))
+
+@app.route("/calculate", methods=["POST"])
+def calculate():
+    req = request.get_json()  
+    accion = req.get("action")
+    moneda = req.get("currency")
+    monto = float(req.get("amount", 0))
+
+    data = leer_datos()
+    divisa = next((d for d in data["divisas"] if d["nombre"] == moneda), None)
+
+    if not divisa:
+        return jsonify({"message": f"No se encontró la divisa {moneda}"})
+
+    calc = calculadora(
+        accion,
+        divisa["compra"],
+        divisa["venta"],
+        monto
+    )
+
+    mensaje = calc.calcular()
+    return jsonify({"message": mensaje})
+
+
+
 
 
 if __name__ == "__main__":

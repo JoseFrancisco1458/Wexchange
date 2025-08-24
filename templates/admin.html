@@ -34,4 +34,8 @@
   <br>
   <button type="submit">Guardar cambios</button>
 </form>
+
+<form action="{{ url_for('logout') }}" method="get">
+  <button type="submit"> <- Regresar al inicio</button>
+</form>
 {% endblock %}

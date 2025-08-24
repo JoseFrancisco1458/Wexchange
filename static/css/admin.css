@@ -15,3 +15,26 @@ table{
 tr td{
     width: 1%;
 }
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 8px;
+  text-align: center;
+}
+
+input[type="number"] {
+  width: 100%;       /* ocupa todo el ancho disponible de la celda */
+  box-sizing: border-box; /* evita que el padding desborde */
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+@media screen and (min-width: 950px){
+    table{
+        width: 50%;
+    }

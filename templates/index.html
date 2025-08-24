@@ -25,7 +25,7 @@
             <li class="lists"><a href="#inicio">Precios</a></li>
             <li class="lists"><a href="#benefits">Nosotros</a></li>
             <li class="lists"><a href="#3">Oficinas</a></li>
-            <li class="lists"><a href="https://wa.link/xe4d1i">Contáctanos</a></li>
+            <li class="lists"><a href="https://wa.link/rz8yzg" target="_blank">Contáctanos</a></li>
         </ul>
     </nav>
 </header>    
@@ -64,7 +64,7 @@
 </main>
 
 <div class="contact">
-        <a href="https://wa.link/xe4d1i">Contáctanos</a>
+        <a href="https://wa.link/rz8yzg" target="_blank">Contáctanos</a>
         <a href="#3">Nuestras sedes</a>
 </div>
 
@@ -82,17 +82,36 @@
     <p class="scroll-appear">las tazas pueden variar durante el dia</p>
 </div>
 
- <div id="calculator" class="calc scroll-appear">
-        <h3>Calcula tu cambio</h3>
-        <input type="number" id="amount" placeholder="Cantidad en USD">
-        <select id="currency">
-            <option value="eur">Euro (EUR)</option>
-            <option value="cop">Peso colombiano (COP)</option>
-            <option value="usd">Dólar estadounidense (USD)<option>
-        </select>
-        <button onclick="calculate()">Calcular</button>
-        <p id="result"></p>
+<div id="calculator" class="calc scroll-appear">
+  <h3>Calcula tu cambio</h3>
+  <form id="calcForm" class="calc-form">
+    
+    <label for="action">¿Qué quieres hacer hoy?</label>
+    <select id="action" name="action">
+      <option value="Comprar">Comprar</option>
+      <option value="Vender">Vender</option>
+    </select>
+
+    <label for="currency">Selecciona tu Divisa</label>
+    <select id="currency" name="currency">
+      {% for d in divisas %}
+      <option value="{{ d.nombre }}">{{ d.nombre }}</option>
+      {% endfor %}
+    </select>
+    
+    <label for="amount">Ingresa tu cantidad</label>
+    <input type="number" id="amount" name="amount" placeholder="Cantidad Total" required>
+
+    <button type="submit">Calcular</button>
+    <p id="result"></p>
+  </form>
+
+  
 </div>
+
+
+
+
 
 
 
@@ -146,10 +165,10 @@
     <div class="footer-section">
       <h3>Enlaces</h3>
       <ul>
-        <li><a href="#">Precios</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Oficinas</a></li>
-        <li><a href="#">Contáctanos</a></li>
+        <li><a href="#inicio">Precios</a></li>
+        <li><a href="#benefits">Nosotros</a></li>
+        <li><a href="#3">Oficinas</a></li>
+        <li><a href="https://wa.link/rz8yzg" target="_blank">Contáctenos</a></li>
       </ul>
     </div>
 
@@ -166,8 +185,8 @@
       <h3>Síguenos</h3>
       <div class="social-icons">
         <a href="#"><img src="{{ url_for('static', filename='Img/facebook.png') }}" alt="Facebook"></a>
-        <a href="#"><img class="ig-logo" src="{{ url_for('static', filename='Img/ig-Photoroom.png') }}" alt="Instagram"></a>
-        <a href="https://wa.link/xe4d1i"><img src="{{ url_for('static', filename='Img/whatsaap-Photoroom.png') }}" alt="WhatsApp"></a>
+        <a href="https://www.instagram.com/wexchange_ctg?igsh=MTVqeGJ0a3k2a2owbQ== " target="_blank"><img class="ig-logo" src="{{ url_for('static', filename='Img/ig-Photoroom.png') }}" alt="Instagram"></a>
+        <a href="https://wa.link/rz8yzg" target="_blank"><img src="{{ url_for('static', filename='Img/whatsaap-Photoroom.png') }}" alt="WhatsApp"></a>
       </div>
     </div>
   </div>
@@ -209,6 +228,8 @@
 <script src="{{ url_for('static', filename='js/snow.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scrollAppear.js') }}"></script>
+<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+
 
 </body>
 </html>

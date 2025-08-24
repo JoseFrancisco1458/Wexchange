@@ -2,9 +2,9 @@
     "divisas": [
         {
             "bandera": "Img/usa.png",
-            "compra": 4200,
+            "compra": 4050,
             "nombre": "Dólar",
-            "venta": 4080
+            "venta": 4200
         },
         {
             "bandera": "Img/union_europea.png",
@@ -23,12 +23,6 @@
             "compra": 2700,
             "nombre": "Canadá",
             "venta": 2800
-        },
-        {
-            "bandera": "Img/theter.png",
-            "compra": 3800,
-            "nombre": "Theter",
-            "venta": 3900
         },
         {
             "bandera": "Img/au.png",

@@ -270,19 +270,7 @@ th, td {
   box-shadow: 0px 0px 15px 2px hsl(0, 0%, 30%);
 }
 
-.calc{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 15px;
-  border: white 1px solid;
-  padding: 20px;
-  border-radius: 12px;
-  background-color: hsl(0, 0%, 100%,5%);
-  width: 300px;
-  margin: 10dvh auto;
- 
-}
+
 
 
 /* section container*/
@@ -338,6 +326,26 @@ input, select,button{
   border-radius: 4px;
   padding: 5px;
 }
+.calc{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  border: white 1px solid;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: hsl(0, 0%, 100%,5%);
+  width: 300px;
+  margin: 10dvh auto;
+ 
+}
+
+.calc-form{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 10px;
+}
 
 /* Where*/
 
@@ -361,6 +369,7 @@ input, select,button{
 .where h2{
   color: var(--color-logo);
   font-size: 2.1rem;
+  text-align: center;
 }
 
 .where p{
@@ -424,14 +433,14 @@ input, select,button{
 .google-map img{
   width: 100%;
   height: auto;
-  max-height: 40dvh;
+  max-height: 45dvh;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 5px;
 }
 iframe{
   width: 100%;
-  height: 40dvh;
+  height: 45dvh;
   border-radius: 10px;
 }
 

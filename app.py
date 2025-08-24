@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session, json
+from flask import Flask, render_template, request, redirect, url_for, session
+from read_data import leer_datos, guardar_datos
 
 app = Flask(__name__)
 app.secret_key = "clave-secreta"
@@ -50,13 +51,6 @@ def logout():
     session.pop("admin", None)
     return redirect(url_for("home"))
 
-def leer_datos():
-    with open("data.json", "r", encoding="utf-8") as f:
-        return json.load(f)
-
-def guardar_datos(datos):
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(datos, f, indent=4, ensure_ascii=False)
 
 if __name__ == "__main__":
     app.run(debug=True)

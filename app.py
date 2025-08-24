@@ -6,10 +6,15 @@ app.secret_key = "clave-secreta"
 ADMIN_USER = "admin"
 ADMIN_PASS = "ivan123"
 
+#@app.route("/")
+#def home():
+#    datos = leer_datos()
+#    return render_template("index.html", divisas=datos["divisas"])
+
 @app.route("/")
 def home():
-    datos = leer_datos()
-    return render_template("index.html", divisas=datos["divisas"])
+    return render_template("index.html")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

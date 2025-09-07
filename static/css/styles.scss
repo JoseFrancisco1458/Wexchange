@@ -855,3 +855,57 @@ dialog button[type="button"]:hover {
 section{
   scroll-margin-top: 80px;
 }
+
+/* splash effect*/
+
+.effect-splash {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-background, #123);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s;
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;   // Cambia height: 100% por min-height: 100vh
+  width: 100vw;
+}
+.splash-image img {
+  width: clamp(250px, 80vw, 500px);
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .splash-container {
+    min-height: 80vh;
+    margin-top: 0vh;
+    margin-bottom: 22vh;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+body.splash-active > *:not(.effect-splash) {
+  visibility: hidden;
+  pointer-events: none;
+}
+body.splash-active .effect-splash {
+  visibility: visible;
+}

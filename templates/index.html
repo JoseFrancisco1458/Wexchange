@@ -11,7 +11,7 @@
     {% endblock %}
     
 </head>
-<body>
+<body class="splash-active">
 
 {% block content %}
 <header>
@@ -176,8 +176,8 @@
     <div class="footer-section">
       <h3>Contacto</h3>
       <p>📍 Calle del colegio #34-8, Cartagena</p>
-      <p>📞 +57 300 123 4567</p>
-      <p>✉ contacto@tudominio.com</p>
+      <p>📞 +57 304 555 7597</p>
+      <p>✉ Wexchange@Wexchange.online</p>
     </div>
 
     <!-- Redes sociales -->
@@ -216,10 +216,11 @@
 
 
 
-
-
-
-
+<div class="effect-splash">
+    <div class="splash-container">
+        <div class="splash-image"><img src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="logo"></div>
+    </div>
+</div>
 
 
 
@@ -229,7 +230,7 @@
 <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scrollAppear.js') }}"></script>
 <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
-
+<script src="{{ url_for('static', filename='js/reload.js') }}"></script>
 
 </body>
 </html>

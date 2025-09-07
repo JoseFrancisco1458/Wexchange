@@ -4,9 +4,12 @@ from calc import calculadora
 
 app = Flask(__name__)
 app.secret_key = "clave-secreta"
+app.config["VERSION"] = "20230907"
 
 ADMIN_USER = "admin"
 ADMIN_PASS = "ivan123"
+
+
 
 @app.route("/")
 def home():
@@ -74,11 +77,12 @@ def calculate():
 
     mensaje = calc.calcular()
     return jsonify({"message": mensaje})
-
-
+    
 
 
 
 if __name__ == "__main__":
     app.run(debug=True)
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+    
+

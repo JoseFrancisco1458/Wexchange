@@ -6,7 +6,7 @@
     {% block title %}<title>Wexchange</title>{% endblock %}
     {% block styles %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v={{ config['VERSION'] }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     {% endblock %}
     
@@ -15,7 +15,7 @@
 
 {% block content %}
 <header>
-    <img class="logo-pc" src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="">
+    <img class="logo-pc" src="{{ url_for('static', filename='Img/logopng5.png') }}?v={{ config['VERSION'] }}" alt="">
     <input type="checkbox" id="side-bar">
     <label class="label-cheked" for="side-bar">
         <span class="material-symbols-outlined icono-menu">menu</span>
@@ -33,7 +33,7 @@
 
 
 <main id="inicio">
-     <img class="logo-movile" src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="">
+     <img class="logo-movile" src="{{ url_for('static', filename='Img/logopng5.png') }}?v={{ config['VERSION'] }}" alt="">
      <section class="first-section">
             <h2 class="section scroll-appear">Profesionales En Cambio De Divisas.</h2>
             <p class="section scroll-appear">Compra y venta de divisas con la eficiencia y seguridad que tú necesitas.
@@ -52,7 +52,7 @@
                 {% for d in divisas %}
                 <tr>
                     <td class="img-text">
-                        <img class="banderas" src="{{ url_for('static', filename=d.bandera) }}" alt="">{{ d.nombre }}
+                        <img class="banderas" src="{{ url_for('static', filename=d.bandera) }}?v={{ config['VERSION'] }}" alt="">{{ d.nombre }}
                     </td>
                     <td>{{ d.compra }}</td>
                     <td>{{ d.venta }}</td>
@@ -78,7 +78,7 @@
 
 <div class="img-container">
     <p class="scroll-appear">Ofrecemos las mejores tazas del mercado</p>
-    <img src="{{ url_for('static', filename='Img/hombre4.png') }}" alt="">
+    <img src="{{ url_for('static', filename='Img/hombre4.png') }}?v={{ config['VERSION'] }}" alt="">
     <p class="scroll-appear">las tazas pueden variar durante el dia</p>
 </div>
 
@@ -121,10 +121,10 @@
 <section id="benefits">
     <h2>¿Por qué elegirnos?</h2>
     <div class="why">
-        <img class="scroll-appear" src="{{ url_for('static', filename='Img/tasas.png') }}" alt="">
-        <img class="scroll-appear" src="{{ url_for('static', filename='Img/transacciones.png') }}" alt="">
-        <img class="scroll-appear" src="{{ url_for('static', filename='Img/seguridad.png') }}" alt="">
-        <img class="scroll-appear" src="{{ url_for('static', filename='Img/ubicacion.png') }}"alt="">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/tasas.png') }}?v={{ config['VERSION'] }}" alt="">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/transacciones.png') }}?v={{ config['VERSION'] }}" alt="">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/seguridad.png') }}?v={{ config['VERSION'] }}" alt="">
+        <img class="scroll-appear" src="{{ url_for('static', filename='Img/ubicacion.png') }}?v={{ config['VERSION'] }}" alt="">
    </div>
   
     
@@ -139,7 +139,7 @@
 </section>
 <div class="google-map">
     <div class="back scroll-appear"></div>
-    <img src="{{ url_for('static', filename='Img/oficina.jpg') }}" alt="">
+    <img src="{{ url_for('static', filename='Img/oficina.jpg') }}?v={{ config['VERSION'] }}" alt="">
     <iframe class="section" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.975746056187!2d-75.54962759999998!3d10.423499200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef62f9fbfc2a539%3A0x1a6a3e03772c44f2!2sCl.%20del%20Colegio%20%2334-8%2C%20El%20Centro%2C%20Cartagena%20de%20Indias%2C%20Provincia%20de%20Cartagena%2C%20Bol%C3%ADvar!5e0!3m2!1sen!2sco!4v1753577051729!5m2!1sen!2sco" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
@@ -158,7 +158,7 @@
   <div class="footer-container">
     <!-- Logo y descripción -->
     <div class="footer-section">
-      <img src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="Logo" class="footer-logo">
+      <img src="{{ url_for('static', filename='Img/logopng5.png') }}?v={{ config['VERSION'] }}" alt="Logo" class="footer-logo">
     </div>
 
     <!-- Enlaces rápidos -->
@@ -184,9 +184,9 @@
     <div class="footer-section">
       <h3>Síguenos</h3>
       <div class="social-icons">
-        <a href="#"><img src="{{ url_for('static', filename='Img/facebook.png') }}" alt="Facebook"></a>
-        <a href="https://www.instagram.com/wexchange_ctg?igsh=MTVqeGJ0a3k2a2owbQ== " target="_blank"><img class="ig-logo" src="{{ url_for('static', filename='Img/ig-Photoroom.png') }}" alt="Instagram"></a>
-        <a href="https://wa.link/rz8yzg" target="_blank"><img src="{{ url_for('static', filename='Img/whatsaap-Photoroom.png') }}" alt="WhatsApp"></a>
+        <a href="#"><img src="{{ url_for('static', filename='Img/facebook.png') }}?v={{ config['VERSION'] }}" alt="Facebook"></a>
+        <a href="https://www.instagram.com/wexchange_ctg?igsh=MTVqeGJ0a3k2a2owbQ== " target="_blank"><img class="ig-logo" src="{{ url_for('static', filename='Img/ig-Photoroom.png') }}?v={{ config['VERSION'] }}" alt="Instagram"></a>
+        <a href="https://wa.link/rz8yzg" target="_blank"><img src="{{ url_for('static', filename='Img/whatsaap-Photoroom.png') }}?v={{ config['VERSION'] }}" alt="WhatsApp"></a>
       </div>
     </div>
   </div>
@@ -218,7 +218,7 @@
 
 <div class="effect-splash">
     <div class="splash-container">
-        <div class="splash-image"><img src="{{ url_for('static', filename='Img/logopng5.png') }}" alt="logo"></div>
+        <div class="splash-image"><img src="{{ url_for('static', filename='Img/logopng5.png') }}?v={{ config['VERSION'] }}" alt="logo"></div>
     </div>
 </div>
 
@@ -226,11 +226,11 @@
 
 
 <!--<div class="snowflakes" id="snow-container"></div>-->
-<script src="{{ url_for('static', filename='js/snow.js') }}"></script>
-<script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
-<script src="{{ url_for('static', filename='js/scrollAppear.js') }}"></script>
-<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
-<script src="{{ url_for('static', filename='js/reload.js') }}"></script>
+<script src="{{ url_for('static', filename='js/snow.js') }}?v={{ config['VERSION'] }}"></script>
+<script src="{{ url_for('static', filename='js/scroll.js') }}?v={{ config['VERSION'] }}"></script>
+<script src="{{ url_for('static', filename='js/scrollAppear.js') }}?v={{ config['VERSION'] }}"></script>
+<script src="{{ url_for('static', filename='js/calculator.js') }}?v={{ config['VERSION'] }}"></script>
+<script src="{{ url_for('static', filename='js/reload.js') }}?v={{ config['VERSION'] }}"></script>
 
 </body>
 </html>

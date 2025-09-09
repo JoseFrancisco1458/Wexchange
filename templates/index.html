@@ -49,16 +49,28 @@
                 </tr>
             </thead>
             <tbody>
-                {% for d in divisas %}
-                <tr>
-                    <td class="img-text">
-                        <img class="banderas" src="{{ url_for('static', filename=d.bandera) }}?v={{ config['VERSION'] }}" alt="">{{ d.nombre }}
-                    </td>
-                    <td>{{ d.compra }}</td>
-                    <td>{{ d.venta }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
+              {% for d in divisas %}
+              <tr>
+                  <td class="img-text">
+                      <img class="banderas" src="{{ url_for('static', filename=d.bandera) }}?v={{ config['VERSION'] }}" alt="">{{ d.nombre }}
+                  </td>
+                  <td>
+                    {% if d.compra == d.compra|int %}
+                      {{ d.compra|int }}
+                    {% else %}
+                      {{ d.compra|round(2) }}
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if d.venta == d.venta|int %}
+                      {{ d.venta|int }}
+                    {% else %}
+                      {{ d.venta|round(2) }}
+                    {% endif %}
+                  </td>
+              </tr>
+              {% endfor %}
+          </tbody>
         </table>
     </div>
 </main>

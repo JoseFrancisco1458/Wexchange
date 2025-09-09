@@ -2,75 +2,87 @@
     "divisas": [
         {
             "bandera": "Img/usa.png",
-            "compra": 4050,
+            "compra": 4050.0,
             "nombre": "Dólar",
-            "venta": 4200
+            "venta": 4200.0
         },
         {
             "bandera": "Img/union_europea.png",
-            "compra": 4500,
+            "compra": 4500.0,
             "nombre": "Euro",
-            "venta": 4080
+            "venta": 4080.0
         },
         {
             "bandera": "Img/brasil.png",
-            "compra": 500,
+            "compra": 500.0,
             "nombre": "Real",
-            "venta": 700
+            "venta": 700.0
         },
         {
             "bandera": "Img/canada.png",
-            "compra": 2700,
+            "compra": 2700.0,
             "nombre": "Canadá",
-            "venta": 2800
+            "venta": 2800.0
+        },
+        {
+            "bandera": "Img/mx.png",
+            "compra": 200.0,
+            "nombre": "Mexicano",
+            "venta": 220.0
         },
         {
             "bandera": "Img/au.png",
-            "compra": 2000,
+            "compra": 2000.0,
             "nombre": "Australiano",
-            "venta": 2200
+            "venta": 2200.0
         },
         {
             "bandera": "Img/inglaterra.png",
-            "compra": 5100,
+            "compra": 5100.0,
             "nombre": "Libra",
-            "venta": 5200
+            "venta": 5200.0
         },
         {
             "bandera": "Img/peru.png",
-            "compra": 1000,
+            "compra": 1000.0,
             "nombre": "Soles",
-            "venta": 1030
+            "venta": 1030.0
+        },
+        {
+            "bandera": "Img/cl.png",
+            "compra": 3500.0,
+            "nombre": "Chileno",
+            "venta": 3700.0
         },
         {
             "bandera": "Img/ch.png",
-            "compra": 4200,
+            "compra": 4200.0,
             "nombre": "Franco",
-            "venta": 4500
+            "venta": 4500.0
         },
         {
             "bandera": "Img/do.png",
-            "compra": 50,
+            "compra": 50.0,
             "nombre": "Dominicano",
-            "venta": 55
+            "venta": 55.0
         },
         {
             "bandera": "Img/jp.png",
-            "compra": 15,
+            "compra": 15.0,
             "nombre": "Yen",
-            "venta": 20
+            "venta": 20.0
         },
         {
             "bandera": "Img/cn.png",
-            "compra": 300,
+            "compra": 300.0,
             "nombre": "Yuan",
-            "venta": 310
+            "venta": 310.0
         },
         {
             "bandera": "Img/cr.png",
-            "compra": 2,
+            "compra": 2.5,
             "nombre": "Colón",
-            "venta": 2
+            "venta": 2.6
         }
     ]
 }

@@ -44,8 +44,8 @@ def panel():
     if request.method == "POST":
         # Recorrer divisas y actualizar valores
         for i, d in enumerate(datos["divisas"]):
-            d["compra"] = int(request.form[f"compra_{i}"])
-            d["venta"] = int(request.form[f"venta_{i}"])
+            d["compra"] = float(request.form[f"compra_{i}"])
+            d["venta"] = float(request.form[f"venta_{i}"])
         guardar_datos(datos)
 
     return render_template("admin.html", divisas=datos["divisas"])

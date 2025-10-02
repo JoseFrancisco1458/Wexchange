@@ -4,7 +4,7 @@ from calc import calculadora
 
 app = Flask(__name__)
 app.secret_key = "clave-secreta"
-app.config["VERSION"] = "20230907"
+app.config["VERSION"] = "20230908"
 
 ADMIN_USER = "admin"
 ADMIN_PASS = "ivan123"
@@ -78,7 +78,10 @@ def calculate():
     mensaje = calc.calcular()
     return jsonify({"message": mensaje})
     
-
+@app.route("/tv")
+def tv_view():
+    divisas = leer_datos().get("divisas", [])
+    return render_template("tv-view.html", divisas=divisas)
 
 
 if __name__ == "__main__":

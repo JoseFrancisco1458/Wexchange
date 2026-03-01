@@ -130,6 +130,23 @@
 
 
 
+<div id="subscribe" class="subscribe-section scroll-appear">
+    <h3>Suscríbete a nuestras actualizaciones</h3>
+    <p>Recibe notificaciones cuando cambien las tasas de cambio.</p>
+    {% if subscribe_msg %}
+        {% if subscribe_error %}
+            <p class="subscribe-msg subscribe-error">{{ subscribe_msg }}</p>
+        {% else %}
+            <p class="subscribe-msg subscribe-success">{{ subscribe_msg }}</p>
+        {% endif %}
+    {% endif %}
+    <form class="subscribe-form" method="post" action="{{ url_for('subscribe') }}">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Suscribirme</button>
+    </form>
+    <p class="subscribe-hint">Para cancelar tu suscripción, <a href="{{ url_for('unsubscribe') }}">haz clic aquí</a>.</p>
+</div>
+
 <section id="benefits">
     <h2>¿Por qué elegirnos?</h2>
     <div class="why">

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelar suscripción – Wexchange</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v={{ config['VERSION'] }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .unsub-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+        .unsub-box {
+            background-color: hsla(0,0%,100%,0.05);
+            border: 1px solid white;
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        .unsub-box h2 {
+            text-align: center;
+            margin: 0;
+        }
+        .unsub-box label {
+            font-size: 0.95rem;
+        }
+        .unsub-box input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            background-color: hsla(0,0%,100%,0.1);
+            border: 1px solid hsla(0,0%,100%,0.3);
+            border-radius: 4px;
+            color: white;
+        }
+        .unsub-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        .unsub-box button:hover {
+            background-color: #e74c3c;
+        }
+        .msg-success { color: #2ecc71; text-align: center; }
+        .msg-error   { color: #e74c3c; text-align: center; }
+        .back-link {
+            color: hsla(0,0%,100%,0.7);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { color: white; }
+    </style>
+</head>
+<body>
+<div class="unsub-container">
+    <div class="unsub-box">
+        <h2>Cancelar suscripción</h2>
+
+        {% if msg %}
+            {% if success %}
+                <p class="msg-success">{{ msg }}</p>
+            {% else %}
+                <p class="msg-error">{{ msg }}</p>
+            {% endif %}
+        {% else %}
+            <p>Ingresa tu correo y el token de cancelación para darte de baja de nuestras notificaciones.</p>
+            <form method="post" action="{{ url_for('unsubscribe') }}">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" value="{{ email or '' }}" required>
+                <br><br>
+                <label for="token">Token de cancelación:</label>
+                <input type="text" id="token" name="token" value="{{ token or '' }}" required>
+                <br><br>
+                <button type="submit">Cancelar suscripción</button>
+            </form>
+        {% endif %}
+    </div>
+    <a href="{{ url_for('home') }}" class="back-link">← Volver al inicio</a>
+</div>
+</body>
+</html>

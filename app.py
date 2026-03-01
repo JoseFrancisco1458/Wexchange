@@ -1,4 +1,3 @@
-import secrets
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from read_data import leer_datos, guardar_datos
 from calc import calculadora
@@ -79,46 +78,7 @@ def calculate():
     mensaje = calc.calcular()
     return jsonify({"message": mensaje})
     
-@app.route("/subscribe", methods=["POST"])
-def subscribe():
-    email = request.form.get("email", "").strip().lower()
-    if not email or "@" not in email:
-        return render_template("index.html", divisas=leer_datos()["divisas"],
-                               subscribe_msg="Por favor ingresa un correo válido.", subscribe_error=True)
-    datos = leer_datos()
-    suscriptores = datos.get("suscriptores", [])
-    if any(s["email"] == email for s in suscriptores):
-        return render_template("index.html", divisas=datos["divisas"],
-                               subscribe_msg="Este correo ya está suscrito.", subscribe_error=True)
-    token = secrets.token_urlsafe(32)
-    suscriptores.append({"email": email, "token": token})
-    datos["suscriptores"] = suscriptores
-    guardar_datos(datos)
-    return render_template("index.html", divisas=datos["divisas"],
-                           subscribe_msg="¡Te has suscrito exitosamente! Para cancelar tu suscripción usa el enlace que te enviaremos.",
-                           subscribe_error=False)
-
-
-@app.route("/unsubscribe", methods=["GET", "POST"])
-def unsubscribe():
-    if request.method == "POST":
-        email = request.form.get("email", "").strip().lower()
-        token = request.form.get("token", "").strip()
-        datos = leer_datos()
-        suscriptores = datos.get("suscriptores", [])
-        original_count = len(suscriptores)
-        datos["suscriptores"] = [s for s in suscriptores
-                                  if not (s["email"] == email and s["token"] == token)]
-        if len(datos["suscriptores"]) < original_count:
-            guardar_datos(datos)
-            return render_template("unsubscribe.html", msg="Tu suscripción ha sido cancelada exitosamente.", success=True)
-        return render_template("unsubscribe.html", msg="No encontramos una suscripción con esos datos.", success=False)
-
-    email = request.args.get("email", "")
-    token = request.args.get("token", "")
-    return render_template("unsubscribe.html", email=email, token=token, msg=None)
-
-
+@app.route("/tv")
 def tv_view():
     divisas = leer_datos().get("divisas", [])
     return render_template("tv-view.html", divisas=divisas)
